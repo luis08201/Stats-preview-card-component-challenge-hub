@@ -1,0 +1,168 @@
+.card {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  &-row {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &-col {
+    @include no-padding;
+
+    &:first-child {
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      background-color: $dark-desaturated-blue;
+    }
+
+    &:last-child {
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    &:last-child::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $soft-violet;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  &-description {
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-top: 42px;
+    padding-bottom: 38px;
+
+    & h1 {
+      color: $white;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 21px;
+    }
+
+    & h1 br {
+      display: none;
+    }
+
+    & p {
+      color: $slightly-transparent-white;
+      text-align: center;
+      font-size: 13.7px;
+      line-height: 24px;
+    }
+  }
+
+  &-feature {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 34px;
+
+    &-companies,
+    &-templates,
+    &-queries {
+      text-align: center;
+      color: $white;
+    }
+
+    &-companies p,
+    &-templates p,
+    &-queries p {
+      text-transform: uppercase;
+      font-family: $secondary-font;
+    }
+  }
+
+  &-img {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    @include no-padding;
+    &-row {
+      flex-direction: row;
+    }
+
+    &-col {
+      height: 480px;
+      &:first-child {
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 8px;
+      }
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 8px;
+      }
+    }
+
+    &-img {
+      height: inherit;
+      object-fit: cover;
+    }
+
+    &-description {
+      & h1 {
+        text-align: left;
+        margin-bottom: 30px;
+        font-size: 28px;
+      }
+
+      & h1 br {
+        display: block;
+      }
+
+      & p {
+        text-align: left;
+        font-size: 15px;
+        line-height: 30px;
+      }
+    }
+
+    &-feature {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+      margin-top: 78px;
+
+      &-companies,
+      &-templates,
+      &-queries {
+        text-align: left;
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    &-description {
+      padding-left: 71px;
+      padding-right: 100px;
+      padding-top: 77px;
+      padding-bottom: 62px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-top: 0;
+    margin-bottom: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &-description {
+      & h1 {
+        font-size: 32px;
+      }
+    }
+  }
+}
